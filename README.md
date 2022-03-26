@@ -37,7 +37,7 @@ In this repo is a sample data file [`rushing.json`](/rushing.json).
     2. The user should be able to sort the players by _Total Rushing Yards_, _Longest Rush_ and _Total Rushing Touchdowns_
     3. The user should be able to filter by the player's name
     4. The user should be able to download the sorted data as a CSV, as well as a filtered subset
-    
+
 2. The system should be able to potentially support larger sets of data on the order of 10k records.
 
 3. Update the section `Installation and running this solution` in the README file explaining how to run your code
@@ -54,17 +54,21 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-First you need a MySQL database, at least PHP 8.0.2, Composer and NPM. You can get MySQL and PHP 8.0.2(in case you don't have the correct version) with installing [MAMP](https://www.mamp.info/en/downloads/). For installing Composer instructions, please follow [this link](https://getcomposer.org/download/). And for Installing NPM instructions, please follow [this URL](https://nodejs.org/en/download/)
+First you need PHP (At least) 8.0.2, Composer and Docker.
+You can get PHP 8.0.2 on your Windows machine(in case you don't have the correct version) with installing [MAMP](https://www.mamp.info/en/downloads/).
+If you are using Mac, you can install it using [Homebrew](https://brew.sh/) and following [this guide](https://wpbeaches.com/updating-to-php-versions-7-4-and-8-on-macos-11-big-sur-and-catalina/).
+
+For installing Composer instructions, please follow [this link](https://getcomposer.org/download/)
+
+For installing Docker Desktop instructions, please follow [this link](https://docs.docker.com/desktop/)
 
 To install, please, follow the steps below:
-1. Copy .env.example to .env
-2. Create a DB with "utf8mb4_general_ci" collation in your MySQL server
-3. Update .env with your MySQL credentials and the db name from the step #2 (`Note`: if you are using default MAMP setup, for login and password you can use "root")
-4. And run this command to finish the installation:
-    ```
-        npm run-script first-install
-    ```
-5. After than. To run the app, please run this command:
-    ```
-        npm run-script run
-    ```
+1. Configure the environment according to the requirements above. And please, make sure Docker is running
+2. Run ```composer install``` to install the dependencies
+3. Copy '.env.example' to '.env'
+4. run ```php artisan key:generate``` to generate application key
+5. Run ```./vendor/bin/sail up -d``` to set up the environment.
+6. Run ```./vendor/bin/sail npm run-script first-install``` so you can seed the DB
+Now you can access it over at [http://localhost](http://localhost) on your machine
+
+To stop the Docker environment use ```./vendor/bin/sail stop```
