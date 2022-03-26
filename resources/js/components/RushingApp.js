@@ -124,6 +124,10 @@ class RushingApp extends React.Component {
     }
 
     fetchData(url, page, tempNewStateValues) {
+        // setting up loader
+        this.setState({
+            isLoaded: false
+        });
         console.log("page", page);
         page = page || defaultDataPage;
         tempNewStateValues = tempNewStateValues || {};

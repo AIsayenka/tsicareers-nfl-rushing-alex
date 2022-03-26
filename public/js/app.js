@@ -6670,6 +6670,10 @@ var RushingApp = /*#__PURE__*/function (_React$Component) {
     value: function fetchData(url, page, tempNewStateValues) {
       var _this2 = this;
 
+      // setting up loader
+      this.setState({
+        isLoaded: false
+      });
       console.log("page", page);
       page = page || defaultDataPage;
       tempNewStateValues = tempNewStateValues || {};
